@@ -25,6 +25,17 @@
   <title>Cipta Adi Kusuma — Senior Software Engineer · Java · Kotlin · Spring Boot</title>
   <meta name="description" content="Cipta Adi Kusuma — Senior Software Engineer with 18+ years of experience in Java, Kotlin, Spring Boot, and GWT. Specialized in fintech and insurance systems, building scalable backend solutions." />
 
+  <!-- ── Anti-flash: set dark mode before first paint ── -->
+  <script>
+    (function() {
+      try {
+        if (localStorage.getItem('theme') !== 'light') {
+          document.documentElement.classList.add('dark');
+        }
+      } catch (e) {}
+    })();
+  </script>
+
   <!-- ── Fonts: Geist (display/body) + JetBrains Mono (code/technical) ── -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -67,21 +78,8 @@
   <!-- ── Custom styles ── -->
   <style>
     /* ── Light/dark mode color tokens (CSS variables swap via .dark class) ── */
+    /* :root = DARK by default; :root without .dark = LIGHT */
     :root {
-      /* Light mode (default) */
-      --c-bg: #fafafa;
-      --c-bg-elevated: #ffffff;
-      --c-bg-deep: #ffffff;
-      --c-bg-card: #ffffff;
-      --c-border: rgba(0, 0, 0, 0.10);
-      --c-border-strong: rgba(0, 0, 0, 0.16);
-      --c-ink-primary: #18181b;
-      --c-ink-secondary: #52525b;
-      --c-ink-tertiary: #71717a;
-      --c-grid-line: rgba(0, 0, 0, 0.04);
-      --c-terminal-bg: rgba(0, 0, 0, 0.04);
-    }
-    html.dark {
       --c-bg: #0a0a0a;
       --c-bg-elevated: #141414;
       --c-bg-deep: #0a0a0a;
@@ -93,6 +91,19 @@
       --c-ink-tertiary: #71717a;
       --c-grid-line: rgba(255, 255, 255, 0.03);
       --c-terminal-bg: rgba(0, 0, 0, 0.40);
+    }
+    :root:not(.dark) {
+      --c-bg: #fafafa;
+      --c-bg-elevated: #ffffff;
+      --c-bg-deep: #ffffff;
+      --c-bg-card: #ffffff;
+      --c-border: rgba(0, 0, 0, 0.10);
+      --c-border-strong: rgba(0, 0, 0, 0.16);
+      --c-ink-primary: #18181b;
+      --c-ink-secondary: #52525b;
+      --c-ink-tertiary: #71717a;
+      --c-grid-line: rgba(0, 0, 0, 0.04);
+      --c-terminal-bg: rgba(0, 0, 0, 0.04);
     }
     body {
       background-color: var(--c-bg);
@@ -850,19 +861,20 @@
 
       // ──────────────────────────────────────────────────────────
       //  DARK MODE TOGGLE — with localStorage persistence
+      //  Default: DARK (matches the :root CSS variables)
       // ──────────────────────────────────────────────────────────
       const html = document.documentElement;
       const toggle = document.getElementById('theme-toggle');
       const cursorGlow = document.getElementById('cursor-glow');
 
       const stored = localStorage.getItem('theme');
-      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
-      // Default to dark; only go light if user explicitly chose light
+      // Apply theme immediately (prevents flash on first paint)
       if (stored === 'light') {
         html.classList.remove('dark');
         if (cursorGlow) cursorGlow.classList.add('hidden');
       } else {
+        // Default: dark mode
         html.classList.add('dark');
         if (cursorGlow) cursorGlow.classList.remove('hidden');
       }

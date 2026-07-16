@@ -66,6 +66,60 @@
 
   <!-- ── Custom styles ── -->
   <style>
+    /* ── Light/dark mode color tokens (CSS variables swap via .dark class) ── */
+    :root {
+      /* Light mode (default) */
+      --c-bg: #fafafa;
+      --c-bg-elevated: #ffffff;
+      --c-bg-deep: #ffffff;
+      --c-bg-card: #ffffff;
+      --c-border: rgba(0, 0, 0, 0.10);
+      --c-border-strong: rgba(0, 0, 0, 0.16);
+      --c-ink-primary: #18181b;
+      --c-ink-secondary: #52525b;
+      --c-ink-tertiary: #71717a;
+      --c-grid-line: rgba(0, 0, 0, 0.04);
+      --c-terminal-bg: rgba(0, 0, 0, 0.04);
+    }
+    html.dark {
+      --c-bg: #0a0a0a;
+      --c-bg-elevated: #141414;
+      --c-bg-deep: #0a0a0a;
+      --c-bg-card: #141414;
+      --c-border: rgba(255, 255, 255, 0.08);
+      --c-border-strong: rgba(255, 255, 255, 0.12);
+      --c-ink-primary: #f2f2f2;
+      --c-ink-secondary: #a1a1aa;
+      --c-ink-tertiary: #71717a;
+      --c-grid-line: rgba(255, 255, 255, 0.03);
+      --c-terminal-bg: rgba(0, 0, 0, 0.40);
+    }
+    body {
+      background-color: var(--c-bg);
+      color: var(--c-ink-primary);
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    body.bg-surface-deep, html body .bg-surface-deep { background-color: var(--c-bg-deep) !important; }
+    .bg-surface, html body .bg-surface { background-color: var(--c-bg-card) !important; }
+    .bg-surface\/80, html body .bg-surface\/80, .bg-surface-deep\/80, html body .bg-surface-deep\/80 { background-color: var(--c-bg-deep) !important; opacity: 0.85; }
+    .bg-surface-elevated\/50, html body .bg-surface-elevated\/50 { background-color: var(--c-bg-elevated) !important; }
+    .bg-black\/40, html body .bg-black\/40 { background-color: var(--c-terminal-bg) !important; }
+    .text-ink-primary, html body .text-ink-primary { color: var(--c-ink-primary) !important; }
+    .text-ink-secondary, html body .text-ink-secondary { color: var(--c-ink-secondary) !important; }
+    .text-ink-tertiary, html body .text-ink-tertiary { color: var(--c-ink-tertiary) !important; }
+    .border-white\/\[0\.08\], html body .border-white\/\[0\.08\] { border-color: var(--c-border) !important; }
+    .border-white\/\[0\.10\], html body .border-white\/\[0\.10\] { border-color: var(--c-border) !important; }
+    .border-white\/\[0\.12\], html body .border-white\/\[0\.12\] { border-color: var(--c-border-strong) !important; }
+    .border-white\/\[0\.16\], html body .border-white\/\[0\.16\] { border-color: var(--c-border-strong) !important; }
+    .hover\:bg-white\/\[0\.05\]:hover, html body .hover\:bg-white\/\[0\.05\]:hover { background-color: var(--c-border) !important; }
+    .hover\:bg-white\/\[0\.08\]:hover, html body .hover\:bg-white\/\[0\.08\]:hover { background-color: var(--c-border) !important; }
+    .bg-white\/\[0\.05\], html body .bg-white\/\[0\.05\] { background-color: var(--c-border) !important; }
+    .bg-white\/\[0\.08\], html body .bg-white\/\[0\.08\] { background-color: var(--c-border) !important; }
+    .ring-surface-deep, html body .ring-surface-deep { --tw-ring-color: var(--c-bg-deep) !important; }
+    /* Section dividers in light mode need a slightly darker tone */
+    html:not(.dark) .border-white\/\[0\.08\] { border-color: rgba(0, 0, 0, 0.08) !important; }
+
     /* ── Scroll-reveal (slower, more premium) ── */
     .reveal {
       opacity: 0;
@@ -81,8 +135,8 @@
     /* ── Micro grid pattern for hero ── */
     .grid-bg {
       background-image:
-        linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px);
+        linear-gradient(to right, var(--c-grid-line) 1px, transparent 1px),
+        linear-gradient(to bottom, var(--c-grid-line) 1px, transparent 1px);
       background-size: 48px 48px;
     }
 

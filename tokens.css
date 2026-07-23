@@ -1,0 +1,99 @@
+/* Hallmark · tokens.css · design-system: design.md
+ * tokens for the chips03 portfolio redesign
+ */
+:root {
+  /* ── Color · paper (dark first) ──────────────────────────── */
+  --color-paper:        oklch(14% 0.005 280);
+  --color-paper-2:      oklch(18% 0.005 280);
+  --color-paper-3:      oklch(22% 0.01 280);
+
+  /* ── Color · ink (text) ──────────────────────────────────── */
+  --color-ink:          oklch(95% 0.005 280);
+  --color-ink-2:        oklch(72% 0.01 280);
+  --color-ink-3:        oklch(55% 0.01 280);
+
+  /* ── Color · rules / borders ─────────────────────────────── */
+  --color-rule:         oklch(35% 0.01 280 / 0.30);
+  --color-rule-strong:  oklch(35% 0.01 280 / 0.55);
+
+  /* ── Color · accent (oxide orange) ───────────────────────── */
+  --color-accent:       oklch(62% 0.21 45);
+  --color-accent-soft:  oklch(62% 0.21 45 / 0.12);
+  --color-accent-ink:   oklch(10% 0.02 45);
+
+  /* ── Color · focus ───────────────────────────────────────── */
+  --color-focus:        oklch(62% 0.21 45);
+
+  /* ── Color · state (semantic) ────────────────────────────── */
+  --color-success:      oklch(70% 0.18 145);
+
+  /* ── Typography ──────────────────────────────────────────── */
+  --font-display:       'Geist', system-ui, -apple-system, sans-serif;
+  --font-body:          'Geist', system-ui, -apple-system, sans-serif;
+  --font-mono:          'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  /* type scale — 4pt-aligned */
+  --text-xs:            0.75rem;   /*  12px */
+  --text-sm:            0.875rem;  /*  14px */
+  --text-md:            1rem;      /*  16px */
+  --text-lg:            1.125rem;  /*  18px */
+  --text-xl:            1.375rem;  /*  22px */
+  --text-2xl:           1.75rem;   /*  28px */
+  --text-3xl:           2.25rem;   /*  36px */
+  --text-4xl:           3rem;      /*  48px */
+  --text-display:       clamp(3.5rem, 11vw, 10rem);
+  --text-stat:          clamp(5rem, 16vw, 14rem);
+
+  /* ── Spacing (4pt) ───────────────────────────────────────── */
+  --space-3xs:          0.25rem;
+  --space-2xs:          0.5rem;
+  --space-xs:           0.75rem;
+  --space-sm:           1rem;
+  --space-md:           1.5rem;
+  --space-lg:           2rem;
+  --space-xl:           3rem;
+  --space-2xl:          4.5rem;
+  --space-3xl:          7rem;
+  --space-4xl:          9rem;
+
+  /* ── Easings (named) ─────────────────────────────────────── */
+  --ease-out:           cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in:            cubic-bezier(0.7, 0, 0.84, 0);
+  --ease-in-out:        cubic-bezier(0.65, 0, 0.35, 1);
+
+  /* ── Durations ───────────────────────────────────────────── */
+  --dur-fast:           120ms;
+  --dur-short:          220ms;
+  --dur-base:           320ms;
+  --dur-long:           600ms;
+
+  /* ── Rules ───────────────────────────────────────────────── */
+  --rule-hair:          0.5px;
+  --rule:               1px;
+  --rule-strong:        2px;
+
+  /* ── Radii ───────────────────────────────────────────────── */
+  --radius-xs:          2px;
+  --radius-sm:          4px;
+  --radius-md:          8px;
+  --radius-pill:        9999px;
+
+  /* ── Layout ──────────────────────────────────────────────── */
+  --container:          min(1280px, 100% - clamp(1.5rem, 4vw, 3rem));
+  --nav-height:         4.5rem;
+}
+
+/* ── Light mode override ────────────────────────────────────── */
+:root:not(.dark) {
+  --color-paper:        oklch(98.5% 0.002 280);
+  --color-paper-2:      oklch(100% 0 0);
+  --color-paper-3:      oklch(96% 0.002 280);
+  --color-ink:          oklch(18% 0.01 280);
+  --color-ink-2:        oklch(38% 0.01 280);
+  --color-ink-3:        oklch(52% 0.01 280);
+  --color-rule:         oklch(20% 0.01 280 / 0.12);
+  --color-rule-strong:  oklch(20% 0.01 280 / 0.22);
+  --color-accent:       oklch(58% 0.20 45);
+  --color-accent-soft:  oklch(58% 0.20 45 / 0.10);
+  --color-accent-ink:   oklch(99% 0 0);
+}

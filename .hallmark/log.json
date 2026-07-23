@@ -1,0 +1,14 @@
+[
+  {
+    "date": "2026-07-23",
+    "macrostructure": "Stat-Led",
+    "theme": "custom",
+    "theme_axes": "dark / grotesk-sans / warm",
+    "vibe": "dark, oxide-orange, JVM-native, engineering-quiet",
+    "enrichment": "none (typography only)",
+    "nav": "N9",
+    "footer": "Ft2",
+    "scope": "single-page",
+    "brief": "chips03.github.io · senior Java/Kotlin/Spring Boot portfolio · dark-first, oxide-orange, Geist + JetBrains Mono"
+  }
+]
